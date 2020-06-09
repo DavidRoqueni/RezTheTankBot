@@ -46,7 +46,7 @@ namespace KickBot
             _timer.Start();
         }
 
-        private async static void _timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        async static void _timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
             foreach(var guild in _client.Guilds)
             {
