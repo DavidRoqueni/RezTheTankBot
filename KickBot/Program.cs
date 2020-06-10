@@ -20,8 +20,9 @@ namespace KickBot
             _client = new DiscordSocketClient();
             // log the bot into discord
             await _client.LoginAsync(Discord.TokenType.Bot, "NzE5NTgzNzY2Mjk2OTIwMTc0.Xt_eDQ.roDYond - X - F3tajLORJSXLHw5VA");
+            //await _client.LoginAsync(Discord.TokenType.Bot, "NzIwMDcwMzkzMjg0Nzg4MzI0.XuAn6w.3HJxtcSCagCRfxZBl8pOaelJBnE");
             await _client.StartAsync();
-            _client.JoinedGuild += _client_JoinedGuild;
+			_client.JoinedGuild += _client_JoinedGuild;
             _client.UserJoined += _client_UserJoined;
             Console.ReadLine();
         }
@@ -33,7 +34,7 @@ namespace KickBot
 
         static async Task _client_JoinedGuild(SocketGuild arg)
         {
-            tempRole = await arg.CreateRoleAsync("TempMember", null, Discord.Color.LightGrey, false, null);
+            tempRole = await arg.CreateRoleAsync("TempMember", Discord.GuildPermissions.None, Discord.Color.LightGrey, true, null);
             Scheduler();
         }
 
